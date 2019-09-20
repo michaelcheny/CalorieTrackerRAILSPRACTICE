@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :find_user
+
   def new
     @user = User.new
   end
@@ -9,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    
   end
 
   def edit
@@ -29,4 +31,9 @@ class UsersController < ApplicationController
   def user_params(*args)
     params.require(:user).permit(*args)
   end
+
+  def find_user
+    @user = User.find(params[:id])
+  end
+
 end
