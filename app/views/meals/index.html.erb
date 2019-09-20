@@ -1,0 +1,19 @@
+<h1>Check out all the meals</h1>
+
+<div>
+  <h3>Filter the meals:</h3>
+  <%= form_tag("/meals", method: "get") do %>
+    <%= select_tag "user", options_from_collection_for_select(@users, "id", "username"), include_blank: "Users" %>
+    <%= select_tag "date", options_for_select(["Today", "Old Meals"]), include_blank: "Date" %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
+
+<% @meals.each do |meal| %>
+  <div>
+    <h2><%= meal.name %></h2>
+    <h3>by: <%= link_to meal.user.username, user_path(meal.user) %></h3>
+    <p><%= meal.calories %></p>
+    <p><%= meal.notes %></p>
+  </div>
+<% end %>
