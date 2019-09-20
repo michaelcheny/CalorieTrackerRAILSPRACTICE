@@ -1,12 +1,8 @@
 class UsersController < ApplicationController
 
-  before_action :find_user
+  before_action :find_user, only: [:index, :show, :edit, :update, :destroy, :index]
 
-  def new
-    @user = User.new
-  end
-
-  def create
+  def index
 
   end
 
@@ -14,7 +10,15 @@ class UsersController < ApplicationController
     
   end
 
+  def new
+    @user = User.new
+  end
+
   def edit
+
+  end
+
+  def create
 
   end
 
