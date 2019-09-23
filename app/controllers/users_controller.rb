@@ -19,7 +19,15 @@ class UsersController < ApplicationController
   end
 
   def create
-
+    @user = User.new(user_params(:username, :password, :password_confirmation))
+    if @user.save
+      session[:user_id] = @user.id
+      flash[:success] = "Hey, #{@user.username}"
+      redirect_to user_path(@user)
+    else
+      flash[:danger] = "WTF BRO"
+      render "new"
+    end
   end
 
   def update

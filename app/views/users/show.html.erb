@@ -2,6 +2,6 @@
 <% @user.meals.each.with_index do |meal, index| %>
   <p>Meal #<%= index + 1 %> <br> 
   <p><%= link_to meal.name, meal_path(meal) %></p>
-  <p><%= meal.calories %> calories</p>
-  <p><%= meal.notes %></p>
+  <p><%= meal.calories %> Calories</p>
+  <p>Notes: <%= meal.notes %></p>
 <% end %>
