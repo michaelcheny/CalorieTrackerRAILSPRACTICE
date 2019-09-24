@@ -15,7 +15,13 @@
  */
 
  .field_with_errors {
-  padding: 2px;
+  padding: 1px;
   background-color: red;
   display: table;
+ }
+
+.error-box {
+  padding-left: 50px;
+  width: 650px;
+  border: 2px solid black;
 }

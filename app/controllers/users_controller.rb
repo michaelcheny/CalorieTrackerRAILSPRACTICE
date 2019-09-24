@@ -21,11 +21,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params(:username, :password, :password_confirmation))
     if @user.save
+      # to log in
       session[:user_id] = @user.id
-      flash[:success] = "Hey, #{@user.username}"
-      redirect_to user_path(@user)
+      flash[:notice] = "Yo #{@user.username}!"
+      redirect_to dashboard_path
     else
-      flash[:danger] = "WTF BRO"
+      flash[:alert] = "WTF BRO"
       render "new"
     end
   end
@@ -36,6 +37,12 @@ class UsersController < ApplicationController
 
   def destroy
 
+  end
+
+  def dashboard
+    # if authenticate
+      @user = current_user
+    # end
   end
 
   private

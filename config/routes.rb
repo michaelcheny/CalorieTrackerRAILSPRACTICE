@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :meals
   resources :users, except: [:index, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get 'dashboard' => "users#dashboard", as: "dashboard"
 end
