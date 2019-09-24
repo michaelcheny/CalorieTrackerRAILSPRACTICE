@@ -14,6 +14,17 @@
  *= require_self
  */
 
+ /* tables for homepage */
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+  padding: 20px;
+}
+
+th {
+  background-color: #2F3136;
+}
+
  .field_with_errors {
   padding: 1px;
   background-color: red;

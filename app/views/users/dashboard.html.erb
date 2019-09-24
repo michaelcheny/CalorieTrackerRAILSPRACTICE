@@ -2,3 +2,31 @@
 <h3>Hey <%= @user.username.titlecase %></h3>
 
 <%= flash[:success] %>
+
+<!--If tdee is filled up, display info-->
+<% if !@user.tdee.nil? %>
+    
+    <p>These are your current stats.</p>
+
+    <table>
+      <tr>
+        <th>Current Weight (lbs)</th>
+        <th>Goal</th>
+        <th>Current (kcal)</th>
+        <th>Recommended (kcal)</th>
+        <th>BMR (kcal)</th>
+        <th>TDEE (kcal)</th>
+      
+      </tr>
+      <tr>
+        <td><%= @user.weight %></td>
+        <td><%= @user.goal %></td>
+        <td><%= @current_calories %></td>
+        <td> placeholder </td>
+        <td><%= @user.bmr %></td>
+        <td><%= @user.tdee %></td>
+       
+      </tr>
+  </table> 
+
+<% end %>

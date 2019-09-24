@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  include UsersHelper
+  include MealsHelper
+
   before_action :find_user, only: [:index, :show, :edit, :update, :destroy, :index]
 
   def index
@@ -40,9 +43,9 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    # if authenticate
-      @user = current_user
-    # end
+    authenticate
+    @user = current_user
+    @current_calories = get_current_calories(@user)
   end
 
   private
