@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get 'dashboard' => "users#dashboard", as: "dashboard"
+  get 'login' => 'sessions#new', as: 'login'
+  post 'login' => 'sessions#create'
+  get 'dashboard' => 'users#dashboard', as: 'dashboard'
 end
