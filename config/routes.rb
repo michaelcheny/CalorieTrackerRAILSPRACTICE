@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     resources :meals, only: [:index, :show]
   end
   
-
+  get "/signup" => 'user#new', as 'signup'
   get 'login' => 'sessions#new', as: 'login'
   post 'login' => 'sessions#create'
+  delete "/logout" => 'sessions#destroy'
+
   get 'dashboard' => 'users#dashboard', as: 'dashboard'
 end

@@ -25,6 +25,7 @@ th {
   background-color: #2F3136;
 }
 
+/* for errors */
  .field_with_errors {
   padding: 1px;
   background-color: red;
